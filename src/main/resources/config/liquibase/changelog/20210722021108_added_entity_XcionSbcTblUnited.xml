@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity XcionSbcTblUnited.
+    -->
+    <changeSet id="20210722021108-1" author="mega">
+        <createTable tableName="xcion_sbc_tbl_united">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="pvs_sbc_cont_no" type="varchar(255)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_xcion_sbc_tbl_united__pvs_sbc_cont_no" />
+            </column>
+            <column name="pvs_mac_addr" type="varchar(255)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_xcion_sbc_tbl_united__pvs_mac_addr" />
+            </column>
+            <column name="pvs_net_typ" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="pvs_st_typ" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="pvs_cust_nm" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_person_typ" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_birth_day" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_gender_typ" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_zip_cd" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="pvs_office_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_hjdong_no" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="pvs_all_addr" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_phone_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_office_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_mobile_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_email" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_new_ymd" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_open_date" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_change_date" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_release_date" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_bill_acnt_no" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_vod_use_yn" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="pvs_test_sbc" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_sbc_typ" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="pvs_area_bcast_typ" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="vod_cp_cnt" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="pvs_typ" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+        </createTable>
+    </changeSet>
+
+
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+    -->
+    <changeSet id="20210722021108-1-data" author="mega" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/xcion_sbc_tbl_united.csv"
+                  separator=";"
+                  tableName="xcion_sbc_tbl_united">
+            <column name="id" type="numeric"/>
+            <column name="pvs_sbc_cont_no" type="string"/>
+            <column name="pvs_mac_addr" type="string"/>
+            <column name="pvs_net_typ" type="string"/>
+            <column name="pvs_st_typ" type="string"/>
+            <column name="pvs_cust_nm" type="string"/>
+            <column name="pvs_person_typ" type="string"/>
+            <column name="pvs_birth_day" type="string"/>
+            <column name="pvs_gender_typ" type="string"/>
+            <column name="pvs_zip_cd" type="string"/>
+            <column name="pvs_office_code" type="string"/>
+            <column name="pvs_hjdong_no" type="string"/>
+            <column name="pvs_all_addr" type="string"/>
+            <column name="pvs_phone_number" type="string"/>
+            <column name="pvs_office_number" type="string"/>
+            <column name="pvs_mobile_number" type="string"/>
+            <column name="pvs_email" type="string"/>
+            <column name="pvs_new_ymd" type="string"/>
+            <column name="pvs_open_date" type="string"/>
+            <column name="pvs_change_date" type="string"/>
+            <column name="pvs_release_date" type="string"/>
+            <column name="pvs_bill_acnt_no" type="string"/>
+            <column name="pvs_vod_use_yn" type="string"/>
+            <column name="pvs_test_sbc" type="string"/>
+            <column name="pvs_sbc_typ" type="numeric"/>
+            <column name="pvs_area_bcast_typ" type="string"/>
+            <column name="vod_cp_cnt" type="numeric"/>
+            <column name="pvs_typ" type="string"/>
+
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

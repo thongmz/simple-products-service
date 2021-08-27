@@ -1,0 +1,13 @@
+package com.fleta.productsservice.domain.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter @Setter
+@NoArgsConstructor @AllArgsConstructor
+public class ContentsParam {
+    private String	product_id;
+    private String	expired_date;
+}

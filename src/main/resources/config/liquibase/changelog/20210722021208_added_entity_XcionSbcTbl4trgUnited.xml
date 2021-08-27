@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity XcionSbcTbl4trgUnited.
+    -->
+    <changeSet id="20210722021208-1" author="mega">
+        <createTable tableName="xcion_sbc_tbl4trg_united">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="pvs_sbc_cont_no" type="varchar(255)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_xcion_sbc_tbl_4_trg_united__pvs_sbc_cont_no" />
+            </column>
+            <column name="pvs_mac_addr" type="varchar(255)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_xcion_sbc_tbl_4_trg_united__pvs_mac_addr" />
+            </column>
+            <column name="vod_drm_send_yn" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+        </createTable>
+    </changeSet>
+
+
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+    -->
+    <changeSet id="20210722021208-1-data" author="mega" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/xcion_sbc_tbl_4_trg_united.csv"
+                  separator=";"
+                  tableName="xcion_sbc_tbl4trg_united">
+            <column name="id" type="numeric"/>
+            <column name="pvs_sbc_cont_no" type="string"/>
+            <column name="pvs_mac_addr" type="string"/>
+            <column name="vod_drm_send_yn" type="string"/>
+
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

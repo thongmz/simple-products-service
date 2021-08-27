@@ -1,0 +1,178 @@
+syntax = "proto3";
+
+package grpc.common;
+
+option java_package = "com.fleta.productsservice.grpc";
+option java_multiple_files = true;
+
+message AlbumGroupReq {
+    string	album_group_id = 1		;
+    string	album_group_nm = 2      ;
+    string	quality_type = 3        ;
+    string	series_no = 4           ;
+    string	rank_no = 5             ;
+    string	contents_id = 6         ;
+    string	dubbing_yn = 7          ;
+    string	caption_yn = 8          ;
+    string	order_no = 9          ;
+
+}
+
+message AlbumGroupInfo {
+    string	super_yn = 1            ;
+    string	album_group_nm = 2      ;
+    string	quality_type = 3        ;
+    string	series_no = 4           ;
+    string	contents_id = 5         ;
+    string	rank_no = 6             ;
+    string	sale_type = 7           ;
+    string	viewing_flag = 8        ;
+    string	summary_promotion = 9   ;
+    string	dubbing_yn = 10         ;
+    string	caption_yn = 11         ;
+}
+
+
+
+message AlbumReq {
+    string  album_id                = 1 ;
+    string  album_name              = 2 ;
+    string  series_desc             = 3 ;
+    string  onair_date              = 4 ;
+    string  release_date            = 5 ;
+    string  watch_2ndtv_yn          = 6 ;
+    string  high_quality_type       = 7 ;
+    string  run_time                = 8 ;
+    string  event_info              = 9 ;
+    string  service_icon            = 10;
+    string  terr_yn                 = 11;
+    string  terr_ed_date            = 12;
+    string  smi_yn                  = 13;
+    string  smi_language            = 14;
+    string  rating_cd               = 15;
+    string  kids_grade              = 16;
+    string  country_of_origin_cd    = 17;
+    string  director_display        = 18;
+    string  producer                = 19;
+    string  starring_actor          = 20;
+    string  actors_display          = 21;
+    string  voice_actor             = 22;
+    string  studio                  = 23;
+    string  genre_large             = 24;
+    string  genre_mid               = 25;
+    string  genre_small             = 26;
+    string  introduction            = 27;
+    string  sub_title               = 28;
+    string  summary_medium          = 29;
+    string  summary_long            = 30;
+    string  avg_rating              = 31;
+    string  tot_rating_count        = 32;
+    string  comment_cnt             = 33;
+    string  cine_id                 = 34;
+    string  cine_avg_point          = 35;
+    string  cine_count              = 36;
+    string  series_no               = 37;
+    string  viewing_flag            = 38;
+    string  rank_no                 = 39;
+    string  dubbing_yn              = 40;
+    string  caption_yn              = 41;
+    string  quality_type            = 42;
+    string  dubbing                 = 43;
+    string  summary_promotion       = 44;
+    string  sale_type               = 45;
+    string  album_group_nm          = 46;
+    string  super_yn                = 47;
+    string  promotion_copy          = 48;
+    string  audio_type              = 49;
+    string  poster_type             = 50;
+    string  service_yn              = 51;
+    string  content_value           = 52;
+    string  reserved_flag           = 53;
+    string  reserved_date           = 54;
+    string  asset_id                = 55;
+
+}
+
+message AlbumInfo {
+    string  album_id                = 1 ;
+    string  album_name              = 2 ;
+    string  series_desc             = 3 ;
+    string  onair_date              = 4 ;
+    string  release_date            = 5 ;
+    string  watch_2ndtv_yn          = 6 ;
+    string  high_quality_type       = 7 ;
+    string  run_time                = 8 ;
+    string  event_info              = 9 ;
+    string  service_icon            = 10;
+    string  terr_yn                 = 11;
+    string  terr_ed_date            = 12;
+    string  smi_yn                  = 13;
+    string  smi_language            = 14;
+    string  rating_cd               = 15;
+    string  kids_grade              = 16;
+    string  country_of_origin_cd    = 17;
+    string  director_display        = 18;
+    string  producer                = 19;
+    string  starring_actor          = 20;
+    string  actors_display          = 21;
+    string  voice_actor             = 22;
+    string  studio                  = 23;
+    string  genre_large             = 24;
+    string  genre_mid               = 25;
+    string  genre_small             = 26;
+    string  introduction            = 27;
+    string  sub_title               = 28;
+    string  summary_medium          = 29;
+    string  summary_long            = 30;
+    string  avg_rating              = 31;
+    string  tot_rating_count        = 32;
+    string  comment_cnt             = 33;
+    string  cine_id                 = 34;
+    string  cine_avg_point          = 35;
+    string  cine_count              = 36;
+    string  series_no               = 37;
+    string  viewing_flag            = 38;
+    string  rank_no                 = 39;
+    string  dubbing_yn              = 40;
+    string  caption_yn              = 41;
+    string  quality_type            = 42;
+    string  dubbing                 = 43;
+    string  summary_promotion       = 44;
+    string  sale_type               = 45;
+    string  album_group_nm          = 46;
+    string  super_yn                = 47;
+    string  promotion_copy          = 48;
+    string  audio_type              = 49;
+    string  poster_type             = 50;
+    string  service_yn              = 51;
+    string  content_value           = 52;
+    string  reserved_flag           = 53;
+    string  reserved_date           = 54;
+    string  asset_id                = 55;
+}
+
+
+message ContentsExpiredReq {
+    string product_id = 1;
+    string expired_date = 2;
+}
+
+message ContentsExpired {
+    string contents_id = 1;
+    string expired_date = 2;
+}
+
+
+
+//상품권한
+service ProductsService {
+
+    // server stream
+    rpc nxvod211TobeSql00502(stream AlbumGroupReq) returns (stream AlbumGroupInfo);
+
+    // server stream
+    rpc nxvod211TobeSql00602(stream AlbumReq) returns (stream AlbumInfo);
+
+    // server stream
+    rpc nxvod211TobeSql01903(stream ContentsExpiredReq) returns (stream ContentsExpired);
+}
